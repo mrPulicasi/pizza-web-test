@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restaurant Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Parallax Section */
+        .parallax {
+            height: 80vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Hero Section with Parallax */
+        .hero {
+            height: 80vh;
+            background-image: url('https://avatars.mds.yandex.net/i?id=e33e125d0353d35c4c0566933607ecc8-5235971-images-thumbs&n=13');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            padding: 50px 100px;
+        }
+
+        .menu {
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            margin-top: 20px;
+            font-size: 1.8rem;
+        }
+
+        .menu-item p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .menu-item span {
+            font-weight: 600;
+            color: #ff6347;
+            font-size: 1.2rem;
+        }
+
+        /* Parallax About Section */
+        .about {
+            text-align: center;
+            padding: 50px 0;
+            background-image: url('https://i.pinimg.com/originals/8a/03/3c/8a033c4807d17c92555cafa1371ce899.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: white;
+        }
+
+        .about h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        /* Parallax Owner Section */
+        .owner {
+            text-align: center;
+            padding: 50px 0;
+            background-color: darksalmon;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: white;
+        }
+
+        .owner h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .owner p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .reviews h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .review-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .review-item {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .review-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Parallax Map Section */
+        .map {
+            text-align: center;
+            padding: 50px 0;
+            background-image: url('https://source.unsplash.com/1600x900/?city-restaurant');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: white;
+        }
+
+        .map h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        /* Timing Section */
+        .timing {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .timing h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .timing p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        footer p span {
+            color: #ff6347;
+        }
+
+        @media (max-width: 900px) {
+            .menu-items, .review-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-item, .review-item {
+                width: 80%;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .hero h2 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fine Dine Restaurant</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#owner">Owner</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#map">Location</a></li>
+                <li><a href="#timing">Timing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h2>Welcome to Fine Dine</h2>
+            <p>Experience the best pizza in town</p>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="https://avatars.mds.yandex.net/i?id=9b60107f987ebaf300b401da13dc94405dd9c2f2-5233584-images-thumbs&n=13" alt="Pizza 1">
+                <h3>Margherita Pizza</h3>
+                <p>Classic pizza topped with fresh mozzarella, tomatoes, and basil.</p>
+                <span>$12.99</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://avatars.mds.yandex.net/i?id=07007533f40b2b87dc646f7e1ada925bec3f08fa-3831986-images-thumbs&n=13" alt="Pizza 2">
+                <h3>Pepperoni Pizza</h3>
+                <p>Loaded with pepperoni slices and gooey cheese.</p>
+                <span>$14.99</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://avatars.mds.yandex.net/i?id=3c97a36f3699ae2e15b927a39e61f60a6e046fc2f9c0d11b-10805116-images-thumbs&n=13" alt="Pizza 3">
+                <h3>Veggie Pizza</h3>
+                <p>A mix of fresh vegetables with a cheesy topping.</p>
+                <span>$13.99</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>Fine Dine Restaurant offers an unparalleled dining experience with a focus on gourmet pizzas made from the freshest ingredients. Our culinary team is passionate about creating dishes that tantalize your taste buds. Come join us for a cozy meal in a warm and inviting setting.</p>
+    </section>
+
+    <section class="owner" id="owner">
+        <h2>About the Owner</h2>
+        <p>John Doe, with over 20 years of experience in the culinary world, is dedicated to providing the best pizzas and dishes to customers. His passion for perfection has made Fine Dine a top destination for pizza lovers.</p>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review-list">
+            <div class="review-item">
+                <p>"Best pizza I've ever had! The crust was crispy and the toppings were fresh." - 5/5 ⭐</p>
+            </div>
+            <div class="review-item">
+                <p>"A perfect blend of flavors. I highly recommend the Margherita pizza!" - 5/5 ⭐</p>
+            </div>
+            <div class="review-item">
+                <p>"Great atmosphere and even better food. Will be coming back soon." - 4.5/5 ⭐</p>
+            </div>
+            <div class="review-item">
+                <p>"The Pepperoni pizza was out of this world! Can't wait to try more from the menu." - 5/5 ⭐</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="map" id="map">
+        <h2>Find Us</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345087937!2d144.9556510154869!3d-37.81731397975186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d47f0e3df91%3A0x1d2fe524c0db8a50!2sFine%20Dine%20Restaurant!5e0!3m2!1sen!2sus!4v1630000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section class="timing" id="timing">
+        <h2>Opening Hours</h2>
+        <p>Monday - Friday: 11:00 AM - 10:00 PM<br>Saturday - Sunday: 12:00 PM - 11:00 PM</p>
+    </section>
+
+    <footer>
+        <p>© 2024 Fine Dine. All rights reserved | Designed by <span>Your Name</span></p>
+    </footer>
+</body>
+</html>
